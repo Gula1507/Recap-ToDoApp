@@ -42,4 +42,14 @@ public class ToDoService {
             throw new NoSuchElementException("There is no ToDo with id: " + id);
         }
     }
+
+    public boolean deleteToDoById(String id) {
+        if (toDoRepository.existsById(id)) {
+            toDoRepository.deleteById(id);
+            return true;
+        } else {
+            throw new NoSuchElementException("There is no ToDo with id: " + id);
+
+        }
+    }
 }

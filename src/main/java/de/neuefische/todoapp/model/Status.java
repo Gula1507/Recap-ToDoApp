@@ -1,7 +1,7 @@
 package de.neuefische.todoapp.model;
 
 public enum Status {
-    DOING,
+    IN_PROGRESS,
     DONE,
     OPEN
 }
