@@ -1,13 +1,13 @@
-package com.example.demo;
+package de.neuefische.todoapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RecapToDoAppApplication {
+public class ToDoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RecapToDoAppApplication.class, args);
+        SpringApplication.run(ToDoApplication.class, args);
     }
 
 }
