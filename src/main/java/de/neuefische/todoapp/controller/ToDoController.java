@@ -23,4 +23,9 @@ public class ToDoController {
     public ToDo saveToDo(@RequestBody ToDoDTO newToDoDTO) {
         return toDoService.save(newToDoDTO);}
 
+    @GetMapping("/{id}")
+    public ToDo getToDoById(@PathVariable String id) {
+        return toDoService.getToDoById(id);
+    }
+
 }

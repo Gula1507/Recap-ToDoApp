@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +25,10 @@ public class ToDoService {
         idService.generateRandomId());
         toDoRepository.save(newToDo);
         return newToDo;
+    }
+
+    public ToDo getToDoById(String id) {
+        return toDoRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("There is no ToDo with id: " + id));
     }
 }
