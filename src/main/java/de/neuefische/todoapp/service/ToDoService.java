@@ -16,13 +16,13 @@ public class ToDoService {
     private final IdService idService;
 
     public List<ToDo> findAll() {
-       return toDoRepository.findAll();
+        return toDoRepository.findAll();
     }
 
     public ToDo save(ToDoDTO newToDoDTO) {
-        ToDo newToDo=new ToDo(newToDoDTO.description(),
+        ToDo newToDo = new ToDo(newToDoDTO.description(),
                 newToDoDTO.status(),
-        idService.generateRandomId());
+                idService.generateRandomId());
         toDoRepository.save(newToDo);
         return newToDo;
     }
@@ -30,5 +30,16 @@ public class ToDoService {
     public ToDo getToDoById(String id) {
         return toDoRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("There is no ToDo with id: " + id));
+    }
+
+    public ToDo updateToDoById(String id, ToDoDTO newToDoDTO) {
+        if (toDoRepository.existsById(id)) {
+            ToDo updatedToDo = new ToDo(newToDoDTO.description(),
+                    newToDoDTO.status(), id);
+            toDoRepository.save(updatedToDo);
+            return getToDoById(id);
+        } else {
+            throw new NoSuchElementException("There is no ToDo with id: " + id);
+        }
     }
 }
