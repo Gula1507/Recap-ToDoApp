@@ -23,8 +23,8 @@ public class ToDoService {
         ToDo newToDo = new ToDo(newToDoDTO.description(),
                 newToDoDTO.status(),
                 idService.generateRandomId());
-        toDoRepository.save(newToDo);
-        return newToDo;
+        return toDoRepository.save(newToDo);
+
     }
 
     public ToDo getToDoById(String id) {
