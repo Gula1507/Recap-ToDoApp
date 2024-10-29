@@ -29,7 +29,7 @@ public class ToDoService {
 
     public ToDo getToDoById(String id) {
         return toDoRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("There is no ToDo with id: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Can´t get ToDo because id not exist. Id: " + id));
     }
 
     public ToDo updateToDoById(String id, ToDoDTO newToDoDTO) {
@@ -48,7 +48,7 @@ public class ToDoService {
             toDoRepository.deleteById(id);
             return true;
         } else {
-            throw new NoSuchElementException("There is no ToDo with id: " + id);
+            throw new NoSuchElementException("There is no ToDo to delete with id: " + id);
 
         }
     }

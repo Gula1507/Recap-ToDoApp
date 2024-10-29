@@ -28,6 +28,16 @@ public class ToDoController {
         return toDoService.getToDoById(id);
     }
 
+//    public ResponseEntity<?> getToDoById(@PathVariable String id) {
+//        try {
+//            ToDo toDo = toDoService.getToDoById(id);
+//            return ResponseEntity.ok(toDo);
+//        } catch (NoSuchElementException ex) {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+//                    .body("Error: There is no ToDo with id: " + id);
+//        }
+//    }
+
     @PutMapping("/{id}")
     public ToDo updateToDoById(@PathVariable String id, @RequestBody ToDoDTO newToDoDTO) {
         return toDoService.updateToDoById(id, newToDoDTO);
